@@ -1,0 +1,18 @@
+<div class="button-row">
+  <button mat-raised-button (click)="toggleFileInput()">Vælg filer</button>
+  <input id="file-selector" type="file" multiple="multiple" (change)="onFileSelected($event)"/>
+  <button mat-raised-button  (click)="upload()" [disabled]="isUploading || files.length == 0" >
+    Upload
+    <mat-icon *ngIf="isUploading" >
+      <mat-spinner diameter="20"></mat-spinner>
+    </mat-icon>
+  </button>
+</div>
+<div>
+  <mat-list *ngIf="files.length > 0">
+    <mat-list-item *ngFor="let file of files">
+      <span>{{file.name}}</span>
+      <span><button mat-button (click)="deleteFileFromList(file.name)"><mat-icon fontIcon="home">delete</mat-icon></button></span>
+    </mat-list-item>
+  </mat-list>
+</div>
