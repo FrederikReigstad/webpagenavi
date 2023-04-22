@@ -1,0 +1,10 @@
+#file-selector {
+  display: none;
+}
+
+.button-row{
+  padding: 15px;
+}
+.button-row button:not(:last-of-type) {
+  margin-right: 8px;
+}

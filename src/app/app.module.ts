@@ -12,6 +12,13 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {MatListModule} from "@angular/material/list";
 import { FileuploaderComponent } from './fileuploader/fileuploader.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {Routes} from "@angular/router";
+
+const route: Routes = [
+  {
+    path: '', component: FileuploaderComponent,
+  }
+]
 
 @NgModule({
   declarations: [
