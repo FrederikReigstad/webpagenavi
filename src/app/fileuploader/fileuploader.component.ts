@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {getStorage, ref, uploadBytes} from "firebase/storage";
 
+
 @Component({
   selector: 'app-fileuploader',
   templateUrl: './fileuploader.component.html',
@@ -11,11 +12,14 @@ export class FileuploaderComponent implements OnInit {
   storageRef;
   firebaseApplication;
   files: File[];
+
   private event;
   private baseUrl = 'gs://navilogic-cd051.appspot.com/navFolder';
   public isUploading: boolean = false;
 
+
   ngOnInit(): void {
+
   }
 
   constructor() {
@@ -23,12 +27,11 @@ export class FileuploaderComponent implements OnInit {
     this.storage = getStorage();
   }
 
+
   public onFileSelected(event: any): void {
-
-
     this.event = event;
     const selectedFiles = Object.assign([], event.target.files);
-    console.log(selectedFiles);
+    console.log('selectedFiles',selectedFiles);
 
     for (const file of selectedFiles) {
       if (!this.files.find(f => f.name === file.name)) { // Check if the file name does not exist in the array
@@ -70,13 +73,13 @@ export class FileuploaderComponent implements OnInit {
   }
 
   deleteFileFromList(name: string) {
-    const fileToRemove: string = name;
-    const filteredFiles: File[] = this.files
-      .filter((file: File) => file.name !== fileToRemove);
-    this.files = filteredFiles;
-    console.log(filteredFiles);
+    for (let i = 0; i < this.files.length; i++) {
+      let file = this.files[i];
+      if (file.name == name) { // Check if the file name does not exist in the array
+        this.files.splice(i, 1);
+      }
+    }
+    console.log(this.files);
   }
-
-
 
 }

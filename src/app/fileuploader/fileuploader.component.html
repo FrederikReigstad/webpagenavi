@@ -1,3 +1,5 @@
+
+
 <div class="button-row">
   <button mat-raised-button (click)="toggleFileInput()">Vælg filer</button>
   <input id="file-selector" type="file" multiple="multiple" (change)="onFileSelected($event)"/>
@@ -8,11 +10,14 @@
     </mat-icon>
   </button>
 </div>
-<div>
+<app-filelist [files]="files" [deleteFileFromList]="deleteFileFromList"></app-filelist>
+
+
+<!--<div>
   <mat-list *ngIf="files.length > 0">
     <mat-list-item *ngFor="let file of files">
       <span>{{file.name}}</span>
-      <span><button mat-button (click)="deleteFileFromList(file.name)"><mat-icon fontIcon="home">delete</mat-icon></button></span>
+      <span><button mat-button (click)="deleteFileFromList(file.name)"><mat-icon fontIcon="home"> delete </mat-icon></button></span>
     </mat-list-item>
   </mat-list>
-</div>
+</div>-->

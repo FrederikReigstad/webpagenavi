@@ -33,9 +33,25 @@ button:hover{
   font-family: "Agency FB";
 }
 
+
+
+.imageLogo{
+  display: flex;
+  align-items: center;
+  transform: scale(0.3);
+  }
+
+.divTopNav{
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+}
+
+
 mat-toolbar{
   display: flex;
   justify-content: space-between;
   padding: 5px 100px;
 }
+
 

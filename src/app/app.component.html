@@ -1,19 +1,21 @@
-<div class="button-row">
+
   <link rel="stylesheet" href="app.component.css">
-
-  <ng-template #balanceDialog>
-
-  </ng-template>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <mat-toolbar>
-    <div>
-      <a routerLink="/"> <img src="../assets/Logo.png"> </a>
+    <div class="divTopNav">
+      <a class="imageLogo"  routerLink="/"> <img src="../assets/Logo.png"> </a>
     </div>
     <div>
-
+        <h2>For all you're file needs </h2>
     </div>
   </mat-toolbar>
-  <div class="rectangle">File Uploader</div>
+  <div class="rectangle">File Compare</div>
+
+<router-outlet>
+
+</router-outlet>
 
 
-</div>
+
+
