@@ -14,10 +14,15 @@ import { FileuploaderComponent } from './fileuploader/fileuploader.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 import {FilelistComponent} from "./components/filelist/filelist.component";
+import { FileviewComponent } from './fileview/fileview.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
   {
     path: '', component: FileuploaderComponent,
+  },
+  {
+    path: '', component: FileviewComponent,
   }
 ]
 
@@ -26,7 +31,7 @@ const routes: Routes = [
     AppComponent,
     FileuploaderComponent,
     FilelistComponent,
-    FilelistComponent
+    FileviewComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,7 @@ const routes: Routes = [
     MatBadgeModule,
     MatListModule,
     MatToolbarModule,
+    HttpClientModule,
     RouterOutlet,
     RouterModule.forRoot(routes),
   ],
