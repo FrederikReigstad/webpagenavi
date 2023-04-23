@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
+import {StorageReference} from "firebase/storage";
 
 @Component({
   selector: 'app-filelist',
@@ -7,8 +8,9 @@ import {Component, Input, OnInit} from "@angular/core";
 })
 export class FilelistComponent implements OnInit {
 
-  @Input() files!: File[]
+  @Input() files!: any[]
   @Input() deleteFileFromList!: (args: any) => void;
+  @Input() canSelect: boolean = false;
   constructor() {
   }
 
