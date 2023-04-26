@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import 'firebase/compat/firestore'
 
 import * as config from '../../firebaseconfig.js'
@@ -15,7 +15,4 @@ export class FireService {
     this.firebaseApplication = initializeApp(config.firebaseConfig);
     getStorage(this.firebaseApplication);
   }
-
-
-
 }

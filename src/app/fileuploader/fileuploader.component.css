@@ -6,11 +6,15 @@
   margin-right: 8px;
 }
 
-button{
+#file-selector{
+  display: none;
+}
+
+.buttons{
   border: 2px solid powderblue;
   padding: 5px;
   color: blueviolet;
 }
-button:hover{
+.buttons:hover{
   background: lightblue;
 }

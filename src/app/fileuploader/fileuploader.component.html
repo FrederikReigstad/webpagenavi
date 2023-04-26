@@ -1,9 +1,9 @@
 
 
 <div class="button-row">
-  <button mat-raised-button (click)="toggleFileInput()">Vælg filer</button>
-  <input id="file-selector" type="file" multiple="multiple" (change)="onFileSelected($event)"/>
-  <button mat-raised-button  (click)="upload()" [disabled]="isUploading || files.length == 0" >
+  <button class="buttons" mat-raised-button (click)="toggleFileInput()">Vælg filer</button>
+  <input [disabled]="" id="file-selector" type="file" multiple="multiple" (change)="onFileSelected($event)"/>
+  <button class="buttons" mat-raised-button  (click)="upload()" [disabled]="isUploading || files.length == 0" >
     Upload
     <mat-icon *ngIf="isUploading" >
       <mat-spinner diameter="20"></mat-spinner>
