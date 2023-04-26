@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { readFileSync } from 'fs';
 import {HttpClient} from '@angular/common/http';
 import {getDownloadURL, ref, StorageReference} from 'firebase/storage';
 import {getStorage, listAll, ListResult} from 'firebase/storage';
@@ -66,4 +67,7 @@ export class FileviewComponent implements OnInit {
   }
 
 
+  compareFiles() {
+
+  }
 }

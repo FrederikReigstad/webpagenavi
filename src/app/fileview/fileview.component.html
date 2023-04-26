@@ -7,7 +7,7 @@
   <div class="button-row">
     <a mat-raised-button href="/upload">Upload files</a>
   </div>
-  <div><button class="buttonCompare" mat-raised-button>Compare</button></div>
+  <div><button class="buttonCompare" mat-raised-button (click)="compareFiles()">Compare</button></div>
 
   <app-filelist [files]="files" [deleteFileFromList]="deleteFileFromList" [canSelect]="true"></app-filelist>
 </span>
