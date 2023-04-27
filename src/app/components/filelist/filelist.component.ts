@@ -14,9 +14,12 @@ export class FilelistComponent implements OnInit {
   @Input() files!: any[];
   @Input() deleteFileFromList!: (args: any) => void;
   @Input() canSelect: boolean = false;
+  @Input() url: string = "";
   storage = getStorage();
   selectedFilesList: any[] = [];
+  urlList: any[] = [];
   selectedFiles: any;
+
 
   constructor(private _http:HttpClient) {
     this.selectedFilesList = [];
@@ -37,6 +40,7 @@ export class FilelistComponent implements OnInit {
     if (!this.selectedFilesList.find(f => f.name === file.name)) {
       this.selectedFilesList.push(file)
       console.log(this.selectedFilesList)
+
     } else if (this.selectedFilesList.find(f => f.name === file.name)) {
       this.selectedFilesList = this.selectedFilesList.filter(f => f.name != file.name)
       console.log(this.selectedFilesList)
@@ -55,29 +59,23 @@ export class FilelistComponent implements OnInit {
       }
     }*/
   }
-  url = "https://firebasestorage.googleapis.com/v0/b/navilogic-cd051.appspot.com/o/navFolder%2FNAV%202013R2%20DK%202015-11-07%20Nem%20-%20Objects%20LIVE%20-%20with%20CU12%20and%204%20add-on.txt?alt=media&token=638a3eca-7aa4-45bb-932f-026fb0817fbf?alt=media";
-  showDateOfFiles(file: any) {
-    const storageRef = ref(this.storage, 'navFolder/' + this.selectedFilesList.filter(f => f.name != file.name));
-    this._http.get(this.url,{responseType:"text"}).subscribe(
-      (res) => {
-        console.log(res)
-      }
-    )
 
+  async showDateOfFiles(file) {
     for (let i = 0; i < this.selectedFilesList.length; i++) {
-      const storageRef = ref(this.storage, 'navFolder/' + this.selectedFilesList.filter(f => f.name != file.name));
-
-      getDownloadURL(ref(storageRef,))
-        .then((url) => {
-          // `url` is the download URL for 'images/stars.jpg'
-
-          // This can be downloaded directly:
-          const xhr = new XMLHttpRequest();
-          xhr.responseType = 'blob';
-          xhr.onload = (event) => {
-            const blob = xhr.response;
-          }
+      console.log("before",file)
+      const storageRef = ref(this.storage, 'navFolder/' + file.name);
+      const url = await getDownloadURL(storageRef);
+      console.log('File URL:', url);
+      this.url = url;
+      this.urlList.push(url,"?alt=media");
+      this._http.get(url, {responseType: "text"}).subscribe(
+        (res) => {
+          console.log(res)
+          this.urlList.pop();
+          console.log("After",file.name)
         })
+
     }
+
   }
 }
