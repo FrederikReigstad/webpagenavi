@@ -5,12 +5,46 @@ mat-list-item:hover {
 .mat-checkbox{
   padding-right: 10px;
 }
-.buttonShow{
+.buttonShow1{
   border: 2px solid powderblue;
   padding: 8px;
   color: blueviolet;
-  margin-left: 15px;
+  margin-left: 300px;
 }
-.buttonShow:hover{
+.buttonShow1:hover{
   background: lightblue;
+}
+
+.buttonShow2{
+  border: 2px solid powderblue;
+  padding: 8px;
+  color: blueviolet;
+  margin-left: 800px;
+}
+.buttonShow2:hover{
+  background: lightblue;
+}
+.file1Data{
+  margin-left: 50px;
+  box-sizing: border-box;
+  width: 750px;
+  height: 350px;
+}
+.file2Data{
+  margin-left: 200px;
+  width: 750px;
+  height: 350px;
+}
+.clearTextarea1{
+  border: 2px solid powderblue;
+  padding: 8px;
+  color: blueviolet;
+  margin-left: 20px;
+}
+
+.clearTextarea2{
+  border: 2px solid powderblue;
+  padding: 8px;
+  color: blueviolet;
+  margin-left: 20px;
 }

@@ -21,6 +21,7 @@ export class FilelistComponent implements OnInit {
   selectedFiles: any;
 
 
+
   constructor(private _http:HttpClient) {
     this.selectedFilesList = [];
   }
@@ -60,8 +61,12 @@ export class FilelistComponent implements OnInit {
     }*/
   }
 
-  async showDateOfFiles(file) {
+  async showDateOfFileText1(file) {
+    const file1Textarea = document.getElementById("file1") as HTMLTextAreaElement;
+    file1Textarea.value = 'This is the text that will be displayed in the textarea.';
+
     for (let i = 0; i < this.selectedFilesList.length; i++) {
+      const file = this.selectedFilesList[i];
       console.log("before",file)
       const storageRef = ref(this.storage, 'navFolder/' + file.name);
       const url = await getDownloadURL(storageRef);
@@ -73,9 +78,49 @@ export class FilelistComponent implements OnInit {
           console.log(res)
           this.urlList.pop();
           console.log("After",file.name)
+
+          const file1Textarea = document.getElementById("file1") as HTMLTextAreaElement;
+          file1Textarea.value = res;
+          console.log("file1",file1Textarea);
         })
 
     }
 
+  }
+
+  async showDateOfFileText2(file) {
+    const file2Textarea = document.getElementById("file2") as HTMLTextAreaElement;
+    file2Textarea.value = 'This is the text that will be displayed in the textarea.';
+
+    for (let i = 0; i < this.selectedFilesList.length; i++) {
+      const file = this.selectedFilesList[i];
+      console.log("before",file)
+      const storageRef = ref(this.storage, 'navFolder/' + file.name);
+      const url = await getDownloadURL(storageRef);
+      console.log('File URL:', url);
+      this.url = url;
+      this.urlList.push(url,"?alt=media");
+      this._http.get(url, {responseType: "text"}).subscribe(
+        (res) => {
+          console.log(res)
+          this.urlList.pop();
+          console.log("After",file.name)
+
+          const file2Textarea = document.getElementById("file2") as HTMLTextAreaElement;
+          file2Textarea.value = res;
+          console.log("file2",file2Textarea);
+        })
+
+    }
+  }
+
+  clearTextarea1() {
+    const file1Textarea = document.getElementById('file1') as HTMLTextAreaElement;
+    file1Textarea.value = '';
+  }
+
+  clearTextarea2() {
+    const file2Textarea = document.getElementById('file2') as HTMLTextAreaElement;
+    file2Textarea.value = '';
   }
 }
