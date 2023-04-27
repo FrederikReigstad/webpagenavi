@@ -10,7 +10,7 @@ import {getStorage, listAll, ListResult} from 'firebase/storage';
   styleUrls: ['./fileview.component.css']
 })
 export class FileviewComponent implements OnInit {
-
+  @Input() selectedFilesList!: any[]
   files: StorageReference[] = [];
   storage = getStorage();
   url: string = "";
@@ -30,6 +30,7 @@ export class FileviewComponent implements OnInit {
         console.log('Files:', listResult.items);
         listResult.items.forEach((item) => {
           this.files.push(item);
+          console.log("ListAll Items:",item);
         })
       })
       .catch((error) => {

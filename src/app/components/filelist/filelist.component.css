@@ -5,3 +5,12 @@ mat-list-item:hover {
 .mat-checkbox{
   padding-right: 10px;
 }
+.buttonShow{
+  border: 2px solid powderblue;
+  padding: 8px;
+  color: blueviolet;
+  margin-left: 15px;
+}
+.buttonShow:hover{
+  background: lightblue;
+}
