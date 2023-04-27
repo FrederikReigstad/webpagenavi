@@ -4,7 +4,13 @@
   <mat-list *ngIf="files && files.length > 0">
     <mat-list-item *ngFor="let file of files" (click)="file.checked = !file.checked" style="cursor: pointer">
       <span *ngIf="canSelect">
-        <mat-checkbox class="mat-checkbox" [(ngModel)]="file.checked"></mat-checkbox>
+        <mat-checkbox
+          class="mat-checkbox"
+          [(ngModel)]="file.checked"
+          (change)="clickedFiles($event)"
+          [checked]="file.select"
+          [value]="file.id"
+        ></mat-checkbox>
       </span>
       <span>{{file.name}}</span>
       <span *ngIf="this.deleteFileFromList"><button mat-button (click)="removeItem(file.name)"><mat-icon fontIcon="home"> delete </mat-icon></button></span>
